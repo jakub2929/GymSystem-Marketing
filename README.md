@@ -66,3 +66,9 @@ Web využívá `output: 'standalone'`. Build produkuje minimální server, kter�
 pnpm build
 node .next/standalone/server.js
 ```
+
+---
+
+> [!IMPORTANT]
+> **Bezpečnostní upozornění:** Tento repozitář neobsahuje žádná reálná hesla ani tajné klíče. Veškerá konfigurace probíhá skrze proměnné prostředí (Environment Variables). Lokálně použijte soubor `.env.local` (který je ignorován Gitem) a pro produkci/Coolify nastavte proměnné přímo v ovládacím panelu.
+
