@@ -100,8 +100,13 @@ export const CalendarSection = () => {
                                             <span className="text-[9px] font-bold uppercase tracking-widest text-foreground/40">Google</span>
                                         </div>
                                         <div className="flex flex-col items-center gap-2 grayscale group-hover:grayscale-0 transition-all duration-500 opacity-40 group-hover:opacity-100">
-                                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center p-2 shadow-xl overflow-hidden">
-                                                <div className="w-full h-full border-t-[6px] border-red-500 bg-white flex items-center justify-center text-red-500 font-bold text-lg pt-1">31</div>
+                                            <div className="w-12 h-12 bg-white rounded-2xl flex flex-col shadow-xl overflow-hidden border border-white/10 group-hover:border-transparent transition-colors">
+                                                <div className="h-4 bg-rose-500 w-full flex items-center justify-center text-[7px] font-bold text-white uppercase tracking-tighter pt-0.5">
+                                                    {new Date().toLocaleDateString('cs-CZ', { month: 'short' }).replace('.', '')}
+                                                </div>
+                                                <div className="flex-1 bg-white flex items-center justify-center text-slate-900 font-bold text-xl leading-none">
+                                                    {new Date().getDate()}
+                                                </div>
                                             </div>
                                             <span className="text-[9px] font-bold uppercase tracking-widest text-foreground/40">Apple</span>
                                         </div>
