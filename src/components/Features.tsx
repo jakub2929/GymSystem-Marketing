@@ -38,6 +38,12 @@ const features = [
         icon: MousePointer2,
         color: "text-sky-500",
     },
+    {
+        title: "Integrace kalendářů",
+        description: "Google & Apple kalendář v jednom kroku. Synchronizace lekcí a tréninků bez ručního přepisování.",
+        icon: Calendar,
+        color: "text-brand-primary",
+    },
 ];
 
 export const Features = () => {

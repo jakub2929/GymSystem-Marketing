@@ -7,6 +7,7 @@ import { RealWorldFlows } from "@/components/RealWorldFlows";
 import { MockupShowcase } from "@/components/MockupShowcase";
 import { TrustBanner } from "@/components/TrustBanner";
 import { InteractiveDemo } from "@/components/InteractiveDemo";
+import { CalendarSection } from "@/components/CalendarSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <TrustBanner />
       <InteractiveDemo />
       <RealWorldFlows />
+      <CalendarSection />
       <MockupShowcase />
       <Features />
       <RoleShowcase />
