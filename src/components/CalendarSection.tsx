@@ -14,28 +14,24 @@ export const CalendarSection = () => {
                             <RefreshCw size={14} className="animate-spin-slow" /> Synchronizace
                         </div>
                         <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight leading-tight">
-                            Plánování bez chaosu. <br />
-                            <span className="text-brand-primary">Google i Apple Kalendář</span> v jednom kroku.
+                            Plánování, které se <span className="text-brand-primary">synchronizuje</span>
                         </h2>
                         <p className="text-base md:text-lg text-foreground/60 mb-10 leading-relaxed font-medium">
-                            Rezervace lekcí a osobní tréninky se jednoduše promítnou do kalendáře. Členové i trenéři mají přehled, notifikace a méně zmeškaných rezervací.
+                            Lekce a rezervace se automaticky promítnou do Google a Apple kalendáře. Vy i vaši členové tak máte vždy aktuální rozvrh bez nutnosti ručního přepisování.
                         </p>
 
                         <div className="space-y-6 mb-10">
                             {[
-                                { title: "Jedním klikem přidáte lekci do Google / Apple kalendáře", target: "Člen" },
-                                { title: "Automatické připomínky snižují no-show", target: "Trenér" },
-                                { title: "Aktualizace změn rozvrhu bez ručního přepisování", target: "Recepce" },
-                                { title: "Podpora iCal/ICS pro další kalendáře", target: "Systém" }
+                                "Jedním kliknutím přidáte lekci do kalendáře",
+                                "Automatické notifikace změn a připomínky",
+                                "Synchronizace pro trenéry i členy",
+                                "Bez zbytečného ručního přepisování rozvrhu"
                             ].map((item, i) => (
                                 <div key={i} className="flex items-start gap-4 group">
                                     <div className="mt-1 bg-brand-primary/10 p-1 rounded-full group-hover:bg-brand-primary/20 transition-colors">
                                         <CheckCircle2 size={18} className="text-brand-primary" />
                                     </div>
-                                    <div>
-                                        <div className="font-bold text-foreground/90">{item.title}</div>
-                                        <div className="text-xs text-brand-primary/60 font-mono uppercase tracking-widest mt-0.5">{item.target}</div>
-                                    </div>
+                                    <div className="font-bold text-foreground/90">{item}</div>
                                 </div>
                             ))}
                         </div>

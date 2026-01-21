@@ -21,10 +21,10 @@ export const MockupShowcase = () => {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-                        Reálné rozhraní <span className="text-brand-primary">vaší aplikace</span>
+                        Rozhraní navržené pro <span className="text-brand-primary">vás</span>
                     </h2>
                     <p className="text-foreground/60 max-w-2xl mx-auto font-medium">
-                        Moderní, přehledné a intuitivní. Navrženo podle nejnovějších standardů pro maximální uživatelský komfort.
+                        Moderní, přehledné a intuitivní prostředí pro správu administrativy i klientské zóny.
                     </p>
                 </div>
 

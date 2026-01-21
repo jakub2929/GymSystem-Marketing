@@ -52,11 +52,11 @@ export const Features = () => {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="text-center mb-20">
                     <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-                        Vše, co potřebujete pro <br />
-                        <span className="text-brand-primary">moderní management</span>
+                        Komplexní nástroje pro <br />
+                        <span className="text-brand-primary">váš fitness management</span>
                     </h2>
                     <p className="text-foreground/60 max-w-2xl mx-auto">
-                        Zapomeňte na papírové karty a složité tabulky. GymScanner automatizuje vše od prvního pípnutí u dveří až po měsíční reporty tržeb.
+                        Automatizujeme rutinní procesy, abyste se mohli plně soustředit na své klienty a růst svého podnikání.
                     </p>
                 </div>
 
