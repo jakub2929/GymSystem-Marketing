@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 
 export const Hero = () => {
     return (
@@ -25,13 +26,26 @@ export const Hero = () => {
                                 Komplexní systém pro správu vstupu, rezervací a členství. Udělejte z vaší posilovny moderní prostor s "liquid glass" designem a automatizovanými turnikety.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                                <button className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 group/btn">
-                                    Získat Demo <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
-                                </button>
-                                <button className="btn-secondary w-full sm:w-auto border-white/10 hover:bg-white/5">
-                                    Prohlédnout Ceník
-                                </button>
+                            <div className="mt-8 mb-10">
+                                <div className="flex flex-col sm:flex-row items-center gap-8">
+                                    <div className="hidden md:flex flex-col items-center gap-2 bg-white p-3 rounded-2xl shadow-xl w-fit">
+                                        <img src="/qr-demo.png" alt="QR Demo" className="w-24 h-24" />
+                                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Naskenujte a otevřete demo</span>
+                                    </div>
+                                    <div className="flex flex-col items-center lg:items-start gap-4 w-full sm:w-auto">
+                                        <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full">
+                                            <button className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 group/btn">
+                                                Získat Demo <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+                                            </button>
+                                            <button className="btn-secondary w-full sm:w-auto border-white/10 hover:bg-white/5">
+                                                Prohlédnout Ceník
+                                            </button>
+                                        </div>
+                                        <Link href="/demo" className="text-sm font-bold text-brand-primary underline hover:opacity-80 transition-opacity">
+                                            Otevřít demo v prohlížeči (pro desktop)
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="mt-12 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-foreground/50">

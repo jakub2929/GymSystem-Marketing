@@ -375,13 +375,24 @@ export const InteractiveDemo = () => {
 
                             {/* Desktop Tour Button */}
                             {currentStep === null && (
-                                <button
-                                    onClick={startTour}
-                                    className="hidden md:flex absolute bottom-8 right-8 z-20 bg-white/10 backdrop-blur-md border border-white/10 p-4 rounded-full text-white hover:bg-white/20 transition-all items-center gap-3 animate-bounce shadow-xl pointer-events-auto"
-                                >
-                                    <span className="text-xs font-bold px-2">Spustit prohlídku</span>
-                                    <ChevronRight size={18} />
-                                </button>
+                                <div className="hidden md:flex absolute bottom-8 right-8 z-20 items-end gap-6 bg-white/5 backdrop-blur-md border border-white/5 p-4 rounded-[2.5rem] pointer-events-auto">
+                                    <div className="flex flex-col items-center gap-1.5 bg-white p-2 rounded-[1.5rem] shadow-xl shrink-0">
+                                        <img src="/qr-demo.png" alt="QR Demo" className="w-20 h-20" />
+                                        <span className="text-[8px] font-bold text-slate-400 uppercase tracking-tighter">Naskenujte demo</span>
+                                    </div>
+                                    <div className="flex flex-col gap-3 pb-2 pr-2">
+                                        <button
+                                            onClick={startTour}
+                                            className="bg-brand-primary text-white p-4 rounded-full hover:bg-brand-primary/80 transition-all flex items-center justify-center gap-3 animate-bounce shadow-xl"
+                                        >
+                                            <span className="text-xs font-bold px-1">Spustit prohlídku</span>
+                                            <ChevronRight size={18} />
+                                        </button>
+                                        <a href="/demo" className="text-[10px] font-bold text-brand-primary underline hover:opacity-80 transition-opacity text-center">
+                                            Mobilní verze v prohlížeči
+                                        </a>
+                                    </div>
+                                </div>
                             )}
                         </div>
 
