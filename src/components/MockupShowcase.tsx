@@ -79,7 +79,7 @@ export const MockupShowcase = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="absolute bottom-6 right-6 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5">
+                            <div className="absolute bottom-6 right-6 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-white/40 border border-white/5 pointer-events-none">
                                 Reálná data z provozu
                             </div>
                         </div>
@@ -159,7 +159,7 @@ export const MockupShowcase = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="absolute bottom-8 right-12 px-5 py-2.5 bg-black/60 backdrop-blur-md rounded-full text-[11px] font-bold uppercase tracking-widest text-brand-primary border border-brand-primary/20">
+                            <div className="absolute bottom-8 right-12 px-5 py-2.5 bg-black/60 backdrop-blur-md rounded-full text-[11px] font-bold uppercase tracking-widest text-brand-primary border border-brand-primary/20 pointer-events-none">
                                 24/7 Provoz bez personálu
                             </div>
                         </div>

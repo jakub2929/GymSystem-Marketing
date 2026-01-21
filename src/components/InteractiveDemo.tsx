@@ -340,9 +340,9 @@ export const InteractiveDemo = () => {
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 10 }}
-                                        className="absolute bottom-12 left-1/2 -translate-x-1/2 w-full max-w-sm"
+                                        className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 w-full max-w-[calc(100%-2rem)] md:max-w-sm z-30"
                                     >
-                                        <div className="bg-brand-primary shadow-2xl rounded-2xl p-6 text-white border border-white/20 relative">
+                                        <div className="bg-brand-primary shadow-2xl rounded-2xl p-5 md:p-6 text-white border border-white/20 relative">
                                             <div className="flex justify-between items-start mb-4">
                                                 <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest opacity-70">
                                                     <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
@@ -373,22 +373,35 @@ export const InteractiveDemo = () => {
                                 )}
                             </AnimatePresence>
 
-                            {/* Initial Tour Button */}
+                            {/* Desktop Tour Button */}
                             {currentStep === null && (
                                 <button
                                     onClick={startTour}
-                                    className="absolute bottom-4 md:bottom-8 right-4 md:right-8 bg-brand-primary md:bg-white/10 backdrop-blur-md border border-white/10 p-3 md:p-4 rounded-full text-white hover:bg-brand-primary/80 md:hover:bg-white/20 transition-all flex items-center gap-3 animate-bounce shadow-xl"
+                                    className="hidden md:flex absolute bottom-8 right-8 z-20 bg-white/10 backdrop-blur-md border border-white/10 p-4 rounded-full text-white hover:bg-white/20 transition-all items-center gap-3 animate-bounce shadow-xl pointer-events-auto"
                                 >
                                     <span className="text-xs font-bold px-2">Spustit prohlídku</span>
                                     <ChevronRight size={18} />
                                 </button>
                             )}
                         </div>
+
+                        {/* Mobile Sticky CTA Area */}
+                        {currentStep === null && (
+                            <div className="md:hidden p-6 border-t border-white/5 bg-slate-900/80 backdrop-blur-xl flex justify-center sticky bottom-0 z-30">
+                                <button
+                                    onClick={startTour}
+                                    className="btn-primary w-full py-5 flex items-center justify-center gap-3 animate-pulse shadow-2xl shadow-brand-primary/20"
+                                >
+                                    <span className="text-base font-bold">Spustit prohlídku</span>
+                                    <ChevronRight size={20} />
+                                </button>
+                            </div>
+                        )}
                     </div>
 
                     {/* Visual Accents */}
-                    <div className="absolute -top-12 -left-12 w-32 h-32 bg-brand-primary/20 rounded-full blur-[80px]" />
-                    <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-brand-primary/10 rounded-full blur-[80px]" />
+                    <div className="absolute -top-12 -left-12 w-32 h-32 bg-brand-primary/20 rounded-full blur-[80px] pointer-events-none -z-10" />
+                    <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-brand-primary/10 rounded-full blur-[80px] pointer-events-none -z-10" />
                 </div>
             </div>
         </section>

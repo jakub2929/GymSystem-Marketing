@@ -29,24 +29,24 @@ export const Navbar = () => {
     return (
         <>
             {showAnnouncement && (
-                <div className="fixed top-0 left-0 right-0 z-[60] bg-brand-primary text-white py-2.5 px-6 flex items-center justify-center gap-4 text-xs md:text-sm font-bold animate-in fade-in slide-in-from-top duration-500 pt-[calc(0.625rem+env(safe-area-inset-top))]">
+                <div className="fixed top-0 left-0 right-0 z-[60] bg-brand-primary text-white py-3 px-10 flex items-center justify-center gap-4 text-xs md:text-sm font-bold animate-in fade-in slide-in-from-top duration-500 pt-[calc(0.75rem+env(safe-area-inset-top))] min-h-[3.5rem]">
                     <span className="flex items-center gap-2 text-center">
-                        <span className="hidden xs:inline-block bg-white/20 px-2 py-0.5 rounded-full text-[10px] uppercase tracking-widest whitespace-nowrap">Novinka</span>
-                        <span className="leading-tight">Vyzkoušejte interaktivní demo GymScanneru</span>
+                        <span className="hidden sm:inline-block bg-white/20 px-2 py-0.5 rounded-full text-[10px] uppercase tracking-widest whitespace-nowrap">Novinka</span>
+                        <span className="leading-tight max-w-[240px] xs:max-w-none">Vyzkoušejte interaktivní demo GymScanneru</span>
                     </span>
-                    <a href="#demo-interactive" className="underline hover:opacity-80 transition-opacity whitespace-nowrap">Zkusit hned</a>
-                    <button onClick={() => setShowAnnouncement(false)} className="absolute right-4 hover:scale-110 transition-transform p-1">
-                        <X size={16} />
+                    <a href="#demo-interactive" className="underline hover:opacity-80 transition-opacity whitespace-nowrap shrink-0">Zkusit hned</a>
+                    <button onClick={() => setShowAnnouncement(false)} className="absolute right-4 top-[calc(0.75rem+env(safe-area-inset-top))] hover:scale-110 transition-transform p-1 opacity-70 hover:opacity-100">
+                        <X size={18} />
                     </button>
                 </div>
             )}
             <nav
                 className={cn(
-                    "fixed left-0 right-0 z-50 transition-all duration-300 px-6 py-4",
-                    showAnnouncement ? "top-12 md:top-10" : "top-0",
+                    "fixed left-0 right-0 z-50 transition-all duration-300 px-6",
+                    showAnnouncement ? "top-14 md:top-10" : "top-0",
                     isScrolled
                         ? "bg-background/80 backdrop-blur-xl border-b border-glass-border py-4"
-                        : "bg-transparent py-4 md:py-6"
+                        : "bg-transparent py-6"
                 )}
             >
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
