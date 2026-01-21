@@ -13,6 +13,9 @@ import {
     ExternalLink
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+
+const DEMO_URL = process.env.NEXT_PUBLIC_DEMO_URL ?? "https://gymscanner-demo.vercel.app";
 
 // Types
 type DeviceType = "desktop" | "mobile" | "kiosk";
@@ -204,38 +207,32 @@ export const InteractiveDemo = () => {
                                                     <div className="text-[10px] font-bold">Ahoj, Karle! 👋</div>
                                                     <div className="w-6" />
                                                 </div>
-                                                <div className="bg-white/5 border border-white/10 rounded-3xl p-6 text-center mb-8 relative group/qr" id="demo-target-qr">
-                                                    <div className="text-[10px] uppercase font-bold tracking-widest text-foreground/40 mb-4">Váš vstupní kód</div>
+                                                <div className="bg-white/5 border border-white/10 rounded-3xl p-6 text-center mb-8 relative group/qr flex flex-col items-center gap-4" id="demo-target-qr">
+                                                    <div className="text-[10px] uppercase font-bold tracking-widest text-foreground/40">Váš vstupní kód</div>
 
-                                                    {/* Interactive QR Easter Egg */}
-                                                    <div
-                                                        className="w-32 h-32 bg-white rounded-2xl mx-auto flex items-center justify-center p-2 mb-4 cursor-pointer hover:scale-105 transition-transform relative"
-                                                        onMouseEnter={() => setShowQrTooltip(true)}
-                                                        onMouseLeave={() => setShowQrTooltip(false)}
-                                                        onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}
-                                                    >
-                                                        <div className="w-full h-full bg-slate-900 rounded-lg flex items-center justify-center relative overflow-hidden">
-                                                            {/* Real-looking SVG QR code pattern */}
-                                                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" className="text-white">
-                                                                <path d="M3 3h6v6H3V3zm12 0h6v6h-6V3zM3 15h6v6H3v-6zm11 0h1v1h-1v-1zm1 1h1v1h-1v-1zm1-1h1v1h-1v-1zm1 1h1v1h-1v-1zm-4 3h1v1h-1v-1zm1 1h1v1h-1v-1zm1-1h1v1h-1v-1zm1 1h1v1h-1v-1zm-4-3v-1h3v1h-1v1h-1v-1h-1zm3 3h1v1h-1v-1zm1-1h1v1h-1v-1z" fill="currentColor" />
-                                                                <path d="M5 5h2v2H5V5zm12 0h2v2h-19V5zm0 14h2v2h-2v-2zM5 17h2v2H5v-2z" fill="currentColor" />
-                                                            </svg>
-                                                            <div className="absolute inset-0 bg-brand-primary/10 flex items-center justify-center opacity-0 group-hover/qr:opacity-100 transition-opacity">
-                                                                <ExternalLink size={24} className="text-white" />
+                                                    {/* Real QR Demo Entry */}
+                                                    <div className="flex flex-col items-center gap-3">
+                                                        <div
+                                                            className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-2xl flex items-center justify-center p-2 cursor-pointer hover:scale-105 transition-transform shadow-2xl"
+                                                            onClick={() => window.open(DEMO_URL, '_blank')}
+                                                        >
+                                                            <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
+                                                                <img src="/qr-demo.png" alt="QR Demo" className="w-full h-full object-contain" />
+                                                                <div className="absolute inset-0 bg-brand-primary/5 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+                                                                    <ExternalLink size={24} className="text-brand-primary" />
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <AnimatePresence>
-                                                            {showQrTooltip && (
-                                                                <motion.div
-                                                                    initial={{ opacity: 0, y: 10 }}
-                                                                    animate={{ opacity: 1, y: 0 }}
-                                                                    exit={{ opacity: 0 }}
-                                                                    className="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white px-3 py-1.5 rounded-lg text-[10px] font-bold whitespace-nowrap z-50 shadow-xl"
-                                                                >
-                                                                    Otevřít profil (Easter Egg 🥚)
-                                                                </motion.div>
-                                                            )}
-                                                        </AnimatePresence>
+
+                                                        <div className="flex flex-col gap-1">
+                                                            <span className="text-[9px] font-bold text-slate-400 uppercase tracking-tighter">Naskenujte pro otevření dema</span>
+                                                            <button
+                                                                onClick={() => window.open(DEMO_URL, '_blank')}
+                                                                className="text-[10px] font-bold text-brand-primary underline hover:opacity-80 transition-opacity"
+                                                            >
+                                                                Otevřít v tomto zařízení
+                                                            </button>
+                                                        </div>
                                                     </div>
 
                                                     <div className="text-sm font-bold text-emerald-500">Platné členství PRO</div>
@@ -375,24 +372,13 @@ export const InteractiveDemo = () => {
 
                             {/* Desktop Tour Button */}
                             {currentStep === null && (
-                                <div className="hidden md:flex absolute bottom-8 right-8 z-20 items-end gap-6 bg-white/5 backdrop-blur-md border border-white/5 p-4 rounded-[2.5rem] pointer-events-auto">
-                                    <div className="flex flex-col items-center gap-1.5 bg-white p-2 rounded-[1.5rem] shadow-xl shrink-0">
-                                        <img src="/qr-demo.png" alt="QR Demo" className="w-20 h-20" />
-                                        <span className="text-[8px] font-bold text-slate-400 uppercase tracking-tighter">Naskenujte demo</span>
-                                    </div>
-                                    <div className="flex flex-col gap-3 pb-2 pr-2">
-                                        <button
-                                            onClick={startTour}
-                                            className="bg-brand-primary text-white p-4 rounded-full hover:bg-brand-primary/80 transition-all flex items-center justify-center gap-3 animate-bounce shadow-xl"
-                                        >
-                                            <span className="text-xs font-bold px-1">Spustit prohlídku</span>
-                                            <ChevronRight size={18} />
-                                        </button>
-                                        <a href="/demo" className="text-[10px] font-bold text-brand-primary underline hover:opacity-80 transition-opacity text-center">
-                                            Mobilní verze v prohlížeči
-                                        </a>
-                                    </div>
-                                </div>
+                                <button
+                                    onClick={startTour}
+                                    className="hidden md:flex absolute bottom-8 right-8 z-20 bg-white/10 backdrop-blur-md border border-white/10 p-4 rounded-full text-white hover:bg-white/20 transition-all items-center gap-3 animate-bounce shadow-xl pointer-events-auto"
+                                >
+                                    <span className="text-xs font-bold px-2">Spustit prohlídku</span>
+                                    <ChevronRight size={18} />
+                                </button>
                             )}
                         </div>
 
