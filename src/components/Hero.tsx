@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 export const Hero = () => {
     return (
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <section className="relative pt-24 md:pt-32 pb-16 md:pb-20 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-16">
                     <div className="flex-1 text-center lg:text-left">
@@ -17,19 +17,19 @@ export const Hero = () => {
                             <span className="inline-block py-1 px-4 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-semibold mb-6">
                                 Představujeme GymScanner 2.0
                             </span>
-                            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
+                            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-6 md:mb-8 leading-[1.1]">
                                 Budoucnost <br />
                                 <span className="text-brand-primary">vašeho gymu</span> začíná zde.
                             </h1>
-                            <p className="text-lg text-foreground/60 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            <p className="text-base md:text-lg text-foreground/60 mb-8 md:mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
                                 Komplexní systém pro správu vstupu, rezervací a členství. Udělejte z vaší posilovny moderní prostor s "liquid glass" designem a automatizovanými turnikety.
                             </p>
 
                             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                                <button className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2">
-                                    Získat Demo <ArrowRight size={18} />
+                                <button className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 group/btn">
+                                    Získat Demo <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
                                 </button>
-                                <button className="btn-secondary w-full sm:w-auto">
+                                <button className="btn-secondary w-full sm:w-auto border-white/10 hover:bg-white/5">
                                     Prohlédnout Ceník
                                 </button>
                             </div>

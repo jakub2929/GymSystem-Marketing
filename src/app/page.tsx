@@ -24,14 +24,14 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row items-center gap-20">
             <div className="flex-1">
               <div className="text-brand-primary text-xs font-bold uppercase tracking-widest mb-4">Hardware & Stabilita</div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">
                 Systém, který vás <br />
                 <span className="text-brand-primary">nikdy nenechá ve štychu</span>
               </h2>
-              <p className="text-foreground/60 mb-8 leading-relaxed font-medium">
+              <p className="text-base md:text-lg text-foreground/60 mb-8 leading-relaxed font-medium">
                 Naše hardware řešení je postaveno na platformě Raspberry Pi a běží na optimalizovaném Python daemone. Je navrženo pro nepřetržitý provoz v náročných podmínkách fitness center.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-10">
                 <div>
                   <div className="font-bold mb-2">Offline-Ready Logika</div>
                   <div className="text-sm text-foreground/50">Při výpadku sítě systém stále loguje průchody a synchronizuje data okamžitě po obnovení spojení.</div>
@@ -45,15 +45,15 @@ export default function Home() {
             <div className="flex-1 w-full">
               <div className="glass-card p-2 rounded-[2.5rem] bg-gradient-to-br from-white/5 to-transparent border-white/10 shadow-3xl">
                 <div className="bg-slate-900 rounded-[2rem] p-12 text-center border border-white/5 relative overflow-hidden group">
-                  {/* Simplified tech diagram */}
-                  <div className="flex justify-between items-center relative z-10 mb-8">
-                    <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-xl grayscale group-hover:grayscale-0 transition-all">📱</div>
-                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-brand-primary to-transparent animate-pulse mx-4" />
-                    <div className="w-20 h-20 bg-brand-primary/20 rounded-2xl flex items-center justify-center text-3xl border border-brand-primary/30">📟</div>
-                    <div className="flex-1 h-px bg-gradient-to-r from-transparent via-brand-primary to-transparent animate-pulse mx-4" />
-                    <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-xl grayscale group-hover:grayscale-0 transition-all">🏗️</div>
+                  {/* Tech diagram - Responsive stack */}
+                  <div className="flex flex-col md:flex-row justify-between items-center relative z-10 gap-6 md:gap-0 mb-8 md:mb-10">
+                    <div className="w-14 h-14 md:w-16 md:h-16 bg-white/5 rounded-2xl flex items-center justify-center text-lg md:text-xl grayscale group-hover:grayscale-0 transition-all">📱</div>
+                    <div className="w-px md:w-full h-8 md:h-px bg-gradient-to-b md:bg-gradient-to-r from-transparent via-brand-primary to-transparent animate-pulse md:mx-4" />
+                    <div className="w-18 h-18 md:w-20 md:h-20 bg-brand-primary/20 rounded-2xl flex items-center justify-center text-2xl md:text-3xl border border-brand-primary/30">📟</div>
+                    <div className="w-px md:w-full h-8 md:h-px bg-gradient-to-b md:bg-gradient-to-r from-transparent via-brand-primary to-transparent animate-pulse md:mx-4" />
+                    <div className="w-14 h-14 md:w-16 md:h-16 bg-white/5 rounded-2xl flex items-center justify-center text-lg md:text-xl grayscale group-hover:grayscale-0 transition-all">🏗️</div>
                   </div>
-                  <div className="font-mono text-[10px] text-emerald-500/60 bg-black/40 p-4 rounded-xl text-left border border-white/5">
+                  <div className="font-mono text-[9px] md:text-[10px] text-emerald-500/60 bg-black/40 p-4 rounded-xl text-left border border-white/5 overflow-hidden">
                     [SYS] PI-DAEMON v2.4 STARTED <br />
                     [NET] CONNECTED TO GYM-API <br />
                     [HW] SCANNER READY (HID-MODE)
@@ -76,13 +76,13 @@ export default function Home() {
               <p className="opacity-80 text-lg md:text-xl">Přidejte se k moderním fitness centrům, které šetří čas i peníze díky GymScanneru.</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 relative z-10 w-full justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 relative z-10 w-full justify-center max-w-lg mx-auto md:max-w-none">
               <input
                 type="email"
                 placeholder="Váš e-mail"
-                className="px-8 py-4 rounded-full bg-white/20 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:bg-white/30 transition-all min-w-[300px]"
+                className="w-full sm:w-auto px-6 md:px-8 py-4 rounded-full bg-white/20 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:bg-white/30 transition-all md:min-w-[300px]"
               />
-              <button className="bg-white text-brand-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-white/90 transition-all shadow-xl shadow-black/10">
+              <button className="whitespace-nowrap bg-white text-brand-primary px-8 md:px-10 py-4 rounded-full font-bold text-base md:text-lg hover:bg-white/90 transition-all shadow-xl shadow-black/10">
                 Chci konzultaci zdarma
               </button>
             </div>

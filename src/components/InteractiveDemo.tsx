@@ -59,6 +59,13 @@ export const InteractiveDemo = () => {
         setActiveDevice(device);
     };
 
+    // Set default device for mobile on initial load
+    useEffect(() => {
+        if (window.innerWidth < 1024) {
+            setActiveDevice("mobile");
+        }
+    }, []);
+
     const startTour = () => setCurrentStep(0);
     const nextStep = () => {
         if (currentStep === null) return;
@@ -72,9 +79,9 @@ export const InteractiveDemo = () => {
     };
 
     return (
-        <section id="demo-interactive" className="py-24 bg-slate-950/40 border-y border-white/5 overflow-hidden">
+        <section id="demo-interactive" className="py-16 md:py-24 bg-slate-950/40 border-y border-white/5 overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="flex flex-col lg:flex-row items-end justify-between gap-8 mb-16">
+                <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-10 mb-12 md:mb-16">
                     <div className="max-w-2xl">
                         <div className="text-brand-primary text-xs font-bold uppercase tracking-widest mb-4">Interaktivní Náhled</div>
                         <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
@@ -86,7 +93,7 @@ export const InteractiveDemo = () => {
                         </p>
                     </div>
 
-                    <div className="flex bg-white/5 p-1.5 rounded-2xl border border-white/5">
+                    <div className="flex w-full lg:w-auto bg-white/5 p-1 rounded-2xl border border-white/5">
                         {[
                             { id: "desktop", icon: Monitor, label: "Admin" },
                             { id: "mobile", icon: Smartphone, label: "Člen" },
@@ -96,14 +103,14 @@ export const InteractiveDemo = () => {
                                 key={device.id}
                                 onClick={() => handleDeviceChange(device.id as DeviceType)}
                                 className={cn(
-                                    "flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold transition-all",
+                                    "flex-1 lg:flex-none flex items-center justify-center gap-2 px-4 md:px-6 py-3 md:py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all",
                                     activeDevice === device.id
                                         ? "bg-white text-brand-primary shadow-xl"
                                         : "text-foreground/40 hover:text-foreground/60"
                                 )}
                             >
                                 <device.icon size={18} />
-                                <span className="hidden sm:inline">{device.label}</span>
+                                <span className="inline">{device.label}</span>
                             </button>
                         ))}
                     </div>
@@ -126,7 +133,7 @@ export const InteractiveDemo = () => {
                         </div>
 
                         {/* View Content */}
-                        <div className="aspect-[16/9] bg-slate-900 relative">
+                        <div className="aspect-square md:aspect-[16/9] lg:aspect-[16/8] bg-slate-900 relative">
                             <AnimatePresence mode="wait">
                                 {activeDevice === "desktop" && (
                                     <motion.div
@@ -136,8 +143,8 @@ export const InteractiveDemo = () => {
                                         exit={{ opacity: 0, scale: 1.02 }}
                                         className="p-8 h-full flex gap-8"
                                     >
-                                        {/* Sidebar */}
-                                        <div className="w-64 bg-white/5 rounded-3xl p-6 flex flex-col gap-4 border border-white/5">
+                                        {/* Sidebar - Hidden on mobile */}
+                                        <div className="hidden lg:flex w-64 bg-white/5 rounded-3xl p-6 flex-col gap-4 border border-white/5">
                                             {["Dashboard", "Členové", "Rezervace", "Finance"].map((tab) => (
                                                 <button
                                                     key={tab}
@@ -152,14 +159,14 @@ export const InteractiveDemo = () => {
                                             ))}
                                         </div>
                                         {/* Main Content */}
-                                        <div className="flex-1 flex flex-col gap-8 overflow-y-auto">
-                                            <div className="grid grid-cols-3 gap-6" id="demo-target-stats">
+                                        <div className="flex-1 flex flex-col gap-6 md:gap-8 overflow-y-auto p-2 md:p-0">
+                                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6" id="demo-target-stats">
                                                 {[
                                                     { label: "Dnešní návštěvy", value: "42", delta: "+12%" },
                                                     { label: "Nové registrace", value: "5", delta: "+2" },
                                                     { label: "Tržby dnes", value: "12 400 Kč", delta: "+8%" },
                                                 ].map((stat, i) => (
-                                                    <div key={i} className="bg-white/5 border border-white/5 p-6 rounded-3xl">
+                                                    <div key={i} className="bg-white/5 border border-white/5 p-4 md:p-6 rounded-2xl md:rounded-3xl">
                                                         <div className="text-[10px] uppercase tracking-widest text-foreground/40 font-bold mb-2">{stat.label}</div>
                                                         <div className="text-2xl font-bold mb-1">{stat.value}</div>
                                                         <div className="text-[10px] text-emerald-500 font-bold">{stat.delta} oproti včerejšku</div>
@@ -189,9 +196,9 @@ export const InteractiveDemo = () => {
                                         exit={{ opacity: 0, scale: 1.05 }}
                                         className="h-full flex items-center justify-center p-4"
                                     >
-                                        <div className="w-[280px] h-[540px] bg-slate-950 border-[8px] border-slate-800 rounded-[3rem] overflow-hidden relative shadow-2xl scale-90 md:scale-100">
+                                        <div className="w-[260px] md:w-[280px] h-[480px] md:h-[540px] bg-slate-950 border-[8px] border-slate-800 rounded-[2.5rem] md:rounded-[3rem] overflow-hidden relative shadow-2xl scale-[0.85] xs:scale-100">
                                             <div className="bg-brand-primary/20 h-40 absolute top-0 left-0 right-0 blur-3xl opacity-50" />
-                                            <div className="relative z-10 p-6 pt-10">
+                                            <div className="relative z-10 p-5 md:p-6 pt-8 md:pt-10">
                                                 <div className="flex items-center justify-between mb-8">
                                                     <div className="w-8 h-8 rounded-full bg-white/10" />
                                                     <div className="text-[10px] font-bold">Ahoj, Karle! 👋</div>
@@ -370,7 +377,7 @@ export const InteractiveDemo = () => {
                             {currentStep === null && (
                                 <button
                                     onClick={startTour}
-                                    className="absolute bottom-8 right-8 bg-white/10 backdrop-blur-md border border-white/10 p-4 rounded-full text-white hover:bg-white/20 transition-all flex items-center gap-3 animate-bounce"
+                                    className="absolute bottom-4 md:bottom-8 right-4 md:right-8 bg-brand-primary md:bg-white/10 backdrop-blur-md border border-white/10 p-3 md:p-4 rounded-full text-white hover:bg-brand-primary/80 md:hover:bg-white/20 transition-all flex items-center gap-3 animate-bounce shadow-xl"
                                 >
                                     <span className="text-xs font-bold px-2">Spustit prohlídku</span>
                                     <ChevronRight size={18} />

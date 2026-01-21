@@ -31,8 +31,8 @@ export const MockupShowcase = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {/* Desktop Dashboard */}
                     <div className="lg:col-span-2 group">
-                        <div className="glass-card rounded-3xl overflow-hidden border-white/10 shadow-2xl relative bg-slate-900 aspect-[16/9]">
-                            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 to-transparent p-10 md:p-12">
+                        <div className="glass-card rounded-[2rem] md:rounded-3xl overflow-hidden border-white/10 shadow-2xl relative bg-slate-900 aspect-square md:aspect-[16/9]">
+                            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 to-transparent p-6 md:p-12">
                                 <div className="flex items-center justify-between mb-8">
                                     <div className="flex items-center gap-2 text-foreground/40 text-xs font-mono uppercase tracking-widest">
                                         <LayoutDashboard size={14} /> Dashboard administrátora
@@ -43,35 +43,35 @@ export const MockupShowcase = () => {
                                     </div>
                                 </div>
 
-                                <div className="space-y-6">
-                                    <div className="grid grid-cols-3 gap-4">
+                                <div className="space-y-4 md:space-y-6">
+                                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
                                         {[
                                             { label: "Dnešní návštěvy", value: 142, delta: "+12%" },
                                             { label: "Aktivní členové", value: 856, delta: "+4" },
                                             { label: "Tržby (Kč)", value: 45200, delta: "+23%" },
                                         ].map((stat, i) => (
-                                            <div key={i} className="p-6 bg-white/5 rounded-2xl border border-white/5 group-hover:bg-white/10 transition-colors">
-                                                <div className="text-[10px] text-foreground/40 font-bold uppercase mb-2">{stat.label}</div>
-                                                <div className="text-xl md:text-2xl font-bold flex items-center gap-1">
+                                            <div key={i} className="p-4 md:p-6 bg-white/5 rounded-xl md:rounded-2xl border border-white/5 group-hover:bg-white/10 transition-colors">
+                                                <div className="text-[10px] text-foreground/40 font-bold uppercase mb-1 md:mb-2">{stat.label}</div>
+                                                <div className="text-lg md:text-2xl font-bold flex items-center gap-1">
                                                     <AnimatedNumber value={stat.value} />
                                                 </div>
                                             </div>
                                         ))}
                                     </div>
 
-                                    <div className="bg-white/5 rounded-2xl p-6 border border-white/5">
-                                        <div className="text-[10px] text-foreground/40 font-bold uppercase mb-4">Nedávné vstupy</div>
-                                        <div className="space-y-3">
+                                    <div className="bg-white/5 rounded-xl md:rounded-2xl p-4 md:p-6 border border-white/5">
+                                        <div className="text-[10px] text-foreground/40 font-bold uppercase mb-3 md:mb-4">Nedávné vstupy</div>
+                                        <div className="space-y-2 md:space-y-3">
                                             {[
-                                                { name: "Jan Novák", time: "Před 2 minuty", type: "Multisport" },
-                                                { name: "Martina Svobodová", time: "Před 5 minutami", type: "Členství PRO" },
-                                                { name: "Petr Dvořák", time: "Před 12 minutami", type: "Jednorázový" },
+                                                { name: "Jan Novák", time: "2m", type: "Multisport" },
+                                                { name: "M. Svobodová", time: "5m", type: "PRO" },
+                                                { name: "Petr Dvořák", time: "12m", type: "Daily" },
                                             ].map((entry, i) => (
-                                                <div key={i} className="flex items-center justify-between text-sm py-2 border-b border-white/5 last:border-0 opacity-80">
-                                                    <span className="font-bold">{entry.name}</span>
-                                                    <div className="flex items-center gap-4">
-                                                        <span className="text-[10px] bg-white/5 px-2 py-0.5 rounded-full">{entry.type}</span>
-                                                        <span className="text-[10px] text-foreground/30">{entry.time}</span>
+                                                <div key={i} className="flex items-center justify-between text-xs md:text-sm py-2 border-b border-white/5 last:border-0 opacity-80">
+                                                    <span className="font-bold truncate mr-2">{entry.name}</span>
+                                                    <div className="flex items-center gap-2 md:gap-4 shrink-0">
+                                                        <span className="text-[9px] md:text-[10px] bg-white/5 px-2 py-0.5 rounded-full">{entry.type}</span>
+                                                        <span className="text-[9px] md:text-[10px] text-foreground/30">{entry.time}</span>
                                                     </div>
                                                 </div>
                                             ))}
@@ -127,30 +127,30 @@ export const MockupShowcase = () => {
 
                     {/* Kiosk Mode */}
                     <div className="lg:col-span-3 group mt-4">
-                        <div className="glass-card rounded-[3rem] overflow-hidden border-white/10 shadow-3xl relative bg-black aspect-[21/9]">
-                            <div className="absolute inset-0 p-12 flex flex-col justify-center">
-                                <div className="flex items-center gap-2 mb-10 text-foreground/40 text-xs font-mono uppercase tracking-widest">
+                        <div className="glass-card rounded-[2rem] md:rounded-[3rem] overflow-hidden border-white/10 shadow-3xl relative bg-black aspect-square md:aspect-[21/9]">
+                            <div className="absolute inset-0 p-6 md:p-12 flex flex-col justify-center">
+                                <div className="flex items-center gap-2 mb-6 md:mb-10 text-foreground/40 text-xs font-mono uppercase tracking-widest">
                                     <Monitor size={14} /> Kiosk režim – Samoobslučná recepce
                                 </div>
-                                <div className="flex gap-12 items-stretch">
-                                    <div className="w-1/4 space-y-4">
-                                        <div className="p-4 bg-white/5 border-l-4 border-emerald-500 rounded-xl">
-                                            <div className="text-[10px] font-bold uppercase text-emerald-500">Průchod povolen</div>
-                                            <div className="text-xs font-bold text-white/60">Jan Novák</div>
+                                <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-stretch md:items-center">
+                                    <div className="w-full md:w-1/4 space-y-3 md:space-y-4">
+                                        <div className="p-3 md:p-4 bg-white/5 border-l-4 border-emerald-500 rounded-xl">
+                                            <div className="text-[9px] md:text-[10px] font-bold uppercase text-emerald-500">Průchod povolen</div>
+                                            <div className="text-[11px] md:text-xs font-bold text-white/60">Jan Novák</div>
                                         </div>
-                                        <div className="p-4 bg-white/5 border-l-4 border-white/10 rounded-xl opacity-40">
+                                        <div className="hidden md:block p-4 bg-white/5 border-l-4 border-white/10 rounded-xl opacity-40">
                                             <div className="text-[10px] font-bold uppercase">Čekám na kód...</div>
                                         </div>
                                     </div>
 
-                                    <div className="flex-1 bg-slate-900/50 rounded-[2.5rem] p-10 border border-white/5 flex items-center gap-12">
-                                        <div className="w-40 h-40 bg-emerald-500 rounded-full flex items-center justify-center text-white text-6xl shadow-[0_0_50px_rgba(16,185,129,0.3)] animate-pulse">
+                                    <div className="flex-1 bg-slate-900/50 rounded-2xl md:rounded-[2.5rem] p-6 md:p-10 border border-white/5 flex flex-row items-center gap-6 md:gap-12">
+                                        <div className="w-16 h-16 md:w-40 md:h-40 bg-emerald-500 rounded-full flex items-center justify-center text-white text-2xl md:text-6xl shadow-[0_0_50px_rgba(16,185,129,0.3)] shrink-0">
                                             ✓
                                         </div>
-                                        <div className="flex-1 space-y-4">
-                                            <div className="text-3xl font-bold tracking-tight">Vítejte v posilovně!</div>
-                                            <div className="text-lg text-foreground/40">Dnes máte 42. návštěvu tento rok. Skvělá práce!</div>
-                                            <div className="flex gap-2 pt-4">
+                                        <div className="flex-1 space-y-2 md:space-y-4 text-left">
+                                            <div className="text-xl md:text-3xl font-bold tracking-tight">Vítejte v posilovně!</div>
+                                            <div className="hidden sm:block text-sm md:text-lg text-foreground/40">Dnes máte 42. návštěvu tento rok. Skvělá práce!</div>
+                                            <div className="flex gap-2 pt-2 md:pt-4">
                                                 <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                                                     <div className="h-full bg-brand-primary w-2/3" />
                                                 </div>
