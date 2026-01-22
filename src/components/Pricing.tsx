@@ -1,7 +1,9 @@
 "use client";
 
-import { Check } from "lucide-react";
+import { useState } from "react";
+import { Check, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { PricingModal } from "./PricingModal";
 
 const plans = [
     {
@@ -49,6 +51,14 @@ const plans = [
 ];
 
 export const Pricing = () => {
+    const [selectedPlan, setSelectedPlan] = useState<typeof plans[0] | null>(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openDetails = (plan: typeof plans[0]) => {
+        setSelectedPlan(plan);
+        setIsModalOpen(true);
+    };
+
     return (
         <section id="pricing" className="py-24">
             <div className="max-w-7xl mx-auto px-6">
@@ -66,16 +76,24 @@ export const Pricing = () => {
                         <div
                             key={plan.name}
                             className={cn(
-                                "glass-card p-8 rounded-3xl flex flex-col relative overflow-hidden",
+                                "glass-card p-8 rounded-3xl flex flex-col relative overflow-hidden group cursor-pointer transition-all hover:border-brand-primary/30",
                                 plan.popular && "border-brand-primary/50 shadow-xl shadow-brand-primary/10"
                             )}
+                            onClick={() => openDetails(plan)}
                         >
                             {plan.popular && (
                                 <div className="absolute top-0 right-0 bg-brand-primary text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-widest">
                                     Nejoblíbenější
                                 </div>
                             )}
-                            <div className="mb-8">
+
+                            <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <div className="bg-brand-primary/10 p-2 rounded-xl text-brand-primary">
+                                    <Info size={16} />
+                                </div>
+                            </div>
+
+                            <div className="mb-8 mt-4">
                                 <h3 className="text-xl font-bold mb-2">{plan.name}</h3>
                                 <div className="flex items-baseline gap-1 mb-4">
                                     {typeof plan.price === "string" && plan.price !== "Individuální" ? (
@@ -110,13 +128,23 @@ export const Pricing = () => {
                                         ? "btn-primary"
                                         : "btn-secondary"
                                 )}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    openDetails(plan);
+                                }}
                             >
-                                {plan.cta}
+                                Zobrazit detail
                             </button>
                         </div>
                     ))}
                 </div>
             </div>
+
+            <PricingModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                plan={selectedPlan}
+            />
         </section>
     );
 };

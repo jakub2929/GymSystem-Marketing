@@ -1,21 +1,32 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Dumbbell, ArrowLeft, ExternalLink, ShieldAlert } from "lucide-react";
 import Link from "next/link";
-
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3001';
+import { DemoPreview } from "@/components/DemoPreview";
 
 const accounts = [
-    { role: "Owner (Majitel)", email: "owner@demo.local", note: "Simulovaný přístup", url: `${APP_URL}/owner/login` },
-    { role: "Admin", email: "admin@demo.local", note: "Simulovaný přístup", url: `${APP_URL}/login` },
-    { role: "Trenér", email: "trainer@demo.local", note: "Simulovaný přístup", url: `${APP_URL}/login` },
-    { role: "Uživatel", email: "test@demo.local", note: "Simulovaný přístup", url: `${APP_URL}/login` },
+    { role: "Owner (Majitel)", email: "owner@demo.local", note: "Simulovaný přístup" },
+    { role: "Admin", email: "admin@demo.local", note: "Simulovaný přístup" },
+    { role: "Trenér", email: "trainer@demo.local", note: "Simulovaný přístup" },
+    { role: "Uživatel", email: "test@demo.local", note: "Simulovaný přístup" },
 ];
 
 export default function DemoPage() {
+    const [selectedRole, setSelectedRole] = useState<string | null>(null);
+
     return (
         <div className="min-h-screen pt-32 pb-20">
+            <AnimatePresence>
+                {selectedRole && (
+                    <DemoPreview
+                        role={selectedRole}
+                        onExit={() => setSelectedRole(null)}
+                    />
+                )}
+            </AnimatePresence>
+
             <div className="max-w-4xl mx-auto px-6">
                 <Link
                     href="/"
@@ -54,14 +65,12 @@ export default function DemoPage() {
                                         <span className="text-brand-primary font-bold">{acc.note}</span>
                                     </div>
                                 </div>
-                                <a
-                                    href={acc.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                <button
+                                    onClick={() => setSelectedRole(acc.role)}
                                     className="flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-primary/10 text-brand-primary font-bold hover:bg-brand-primary text-sm hover:text-white transition-all mt-2"
                                 >
                                     Vstoupit do dema <ExternalLink size={14} />
-                                </a>
+                                </button>
                             </div>
                         ))}
                     </div>
@@ -69,7 +78,7 @@ export default function DemoPage() {
                     <div className="p-6 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex gap-4 text-sm leading-relaxed">
                         <ShieldAlert className="shrink-0" />
                         <p>
-                            <strong>Důležité:</strong> Tyto údaje jsou určeny pouze pro lokální testování a vývojové prostředí. V produkčním nasazení budou vaše data plně zabezpečena.
+                            <strong>Vždy funkční:</strong> Tato verze dema běží izolovaně v rámci našeho webu, aby byla zajištěna stoprocentní dostupnost bez nutnosti externího přihlašování.
                         </p>
                     </div>
                 </motion.div>
